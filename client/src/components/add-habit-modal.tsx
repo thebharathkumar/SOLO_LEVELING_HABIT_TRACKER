@@ -111,7 +111,7 @@ export default function AddHabitModal({ isOpen, onClose }: AddHabitModalProps) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-gray-300 font-semibold">Category</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <Select onValueChange={field.onChange} value={field.value || ""}>
                     <FormControl>
                       <SelectTrigger 
                         className="bg-midnight/50 border-electric/30 text-white focus:border-electric focus:ring-2 focus:ring-electric/20"
@@ -154,7 +154,7 @@ export default function AddHabitModal({ isOpen, onClose }: AddHabitModalProps) {
                       max="100"
                       className="bg-midnight/50 border-electric/30 text-white placeholder-gray-400 focus:border-electric focus:ring-2 focus:ring-electric/20"
                       data-testid="input-habit-exp"
-                      {...field}
+                      value={field.value || ""}
                       onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
                     />
                   </FormControl>
@@ -192,7 +192,7 @@ export default function AddHabitModal({ isOpen, onClose }: AddHabitModalProps) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-gray-300 font-semibold">Penalty Destination</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <Select onValueChange={field.onChange} value={field.value || ""}>
                     <FormControl>
                       <SelectTrigger 
                         className="bg-midnight/50 border-electric/30 text-white focus:border-electric focus:ring-2 focus:ring-electric/20"
