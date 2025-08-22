@@ -13,7 +13,10 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
 const formSchema = insertHabitSchema.extend({
+  name: z.string().min(1, "Quest name is required"),
+  category: z.string().min(1, "Category is required"),
   penalty: z.string().min(1, "Penalty amount is required"),
+  penaltyDestination: z.string().min(1, "Penalty destination is required"),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -241,6 +244,12 @@ export default function AddHabitModal({ isOpen, onClose }: AddHabitModalProps) {
                 className="flex-1 bg-electric hover:bg-electric/80 text-white font-semibold animate-glow"
                 disabled={createHabitMutation.isPending}
                 data-testid="button-create-habit"
+                onClick={(e) => {
+                  console.log("Create Quest button clicked!");
+                  console.log("Form values:", form.getValues());
+                  console.log("Form is valid:", form.formState.isValid);
+                  console.log("Form errors:", form.formState.errors);
+                }}
               >
                 {createHabitMutation.isPending ? (
                   <>
