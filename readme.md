@@ -69,3 +69,7 @@ Payment processing includes webhook support for handling payment confirmations, 
 - **Unsplash**: Placeholder images for character avatars and UI elements
 
 The application is designed for deployment on Replit with environment-based configuration supporting development and production modes. The architecture prioritizes type safety, performance, and user experience while maintaining the gamified aesthetic that makes habit tracking engaging and motivating.
+
+<img width="1654" height="829" alt="Screenshot 2025-08-22 at 1 14 52 AM" src="https://github.com/user-attachments/assets/7c3cde64-e19c-4e12-a84a-87fd20f7a3ba" />
+<img width="1530" height="845" alt="Screenshot 2025-08-22 at 1 15 13 AM" src="https://github.com/user-attachments/assets/c0a99531-c09c-4ccf-a254-37644d3c8cc6" />
+
