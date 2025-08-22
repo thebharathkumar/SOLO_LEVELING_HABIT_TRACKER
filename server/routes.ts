@@ -45,12 +45,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post('/api/habits', isAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
+      console.log("Creating habit for user:", userId);
+      console.log("Request body:", req.body);
+      
       const habitData = insertHabitSchema.parse({ ...req.body, userId });
+      console.log("Parsed habit data:", habitData);
+      
       const habit = await storage.createHabit(habitData);
+      console.log("Created habit:", habit);
+      
       res.json(habit);
     } catch (error) {
       console.error("Error creating habit:", error);
-      res.status(400).json({ message: "Failed to create habit" });
+      if (error instanceof Error) {
+        console.error("Error details:", error.message);
+        console.error("Error stack:", error.stack);
+      }
+      res.status(400).json({ 
+        message: "Failed to create habit", 
+        error: error instanceof Error ? error.message : "Unknown error" 
+      });
     }
   });
 

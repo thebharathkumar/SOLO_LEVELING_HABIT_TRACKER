@@ -41,13 +41,18 @@ export default function AddHabitModal({ isOpen, onClose }: AddHabitModalProps) {
 
   const createHabitMutation = useMutation({
     mutationFn: async (data: FormData) => {
+      console.log("Submitting habit data:", data);
       const habitData = {
         ...data,
         penalty: parseFloat(data.penalty).toFixed(2),
       };
-      return apiRequest("POST", "/api/habits", habitData);
+      console.log("Processed habit data:", habitData);
+      const response = await apiRequest("POST", "/api/habits", habitData);
+      console.log("API response:", response);
+      return response;
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log("Quest created successfully:", data);
       queryClient.invalidateQueries({ queryKey: ["/api/habits"] });
       toast({
         title: "Quest Created!",
@@ -57,6 +62,7 @@ export default function AddHabitModal({ isOpen, onClose }: AddHabitModalProps) {
       onClose();
     },
     onError: (error) => {
+      console.error("Quest creation error:", error);
       toast({
         title: "Error",
         description: "Failed to create habit: " + error.message,
@@ -66,6 +72,8 @@ export default function AddHabitModal({ isOpen, onClose }: AddHabitModalProps) {
   });
 
   const onSubmit = (data: FormData) => {
+    console.log("Form submitted with data:", data);
+    console.log("Form errors:", form.formState.errors);
     createHabitMutation.mutate(data);
   };
 
