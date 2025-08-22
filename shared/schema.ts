@@ -233,6 +233,12 @@ export const upsertUserSchema = createInsertSchema(users).omit({
   updatedAt: true,
 });
 
+// Special schema for Replit Auth that includes ID
+export const replitAuthUserSchema = createInsertSchema(users).omit({
+  createdAt: true,
+  updatedAt: true,
+});
+
 export const insertHabitSchema = createInsertSchema(habits).omit({
   id: true,
   createdAt: true,
