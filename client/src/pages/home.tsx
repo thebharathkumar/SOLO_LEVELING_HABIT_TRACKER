@@ -126,6 +126,31 @@ export default function Home() {
         </section>
       </div>
 
+      {/* Credits Footer */}
+      <footer className="glass-morph border-t border-electric/30 mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <div className="w-8 h-8 bg-gradient-to-br from-electric to-gold rounded-lg flex items-center justify-center animate-float">
+                <i className="fas fa-code text-midnight text-sm"></i>
+              </div>
+              <h3 className="text-xl font-orbitron font-bold glow-text text-gold">Shadow Habits</h3>
+            </div>
+            <p className="text-gray-300 mb-2">
+              A Solo Leveling inspired habit tracker with RPG gamification
+            </p>
+            <div className="flex items-center justify-center space-x-2 text-electric">
+              <i className="fas fa-heart text-blood"></i>
+              <span className="text-white">Made with passion by</span>
+              <span className="font-orbitron font-bold text-gold glow-text">Bharath</span>
+            </div>
+            <div className="mt-3 text-gray-400 text-sm">
+              <span>Level up your life, one quest at a time</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+
       {/* Add Habit Modal */}
       <AddHabitModal 
         isOpen={isAddHabitModalOpen} 
